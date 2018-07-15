@@ -77,7 +77,7 @@ def run():
     load_contact(contact_list)
     while 1:
         menu = print_menu()
-        if menu == 1:
+        if  menu == 1:
             contact = set_contact()
             contact_list.append(contact)
         elif menu == 2:
