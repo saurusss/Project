@@ -35,42 +35,20 @@ def ma(gss,calcT):
         gs.insert(len(gs.columns), maC, maN)
         #print(gs)
 
-menu = print_menu()
-gs = query_gs(menu)
-# calcT = [5, 20, 60, 120]
-calcT = [60, 120]
-ma(gs, calcT)
-
-
-# ma5 = ma(gs, 5)
-# ma20 =ma(gs, 20)
-# ma60 = ma(gs,60)
-# ma120 = ma(gs,120)
-
-# 주가 이동평균 계산
-# ma5 = gs['Adj Close'].rolling(window=5).mean()
-# gs.insert(len(gs.columns), "MA5", ma5)
-
-# ma20 = gs['Adj Close'].rolling(window=20).mean()
-# gs.insert(len(gs.columns), "MA20", ma20)
-
-# ma60 = gs['Adj Close'].rolling(window=60).mean()
-# gs.insert(len(gs.columns), "MA60", ma60)
-# ma120 = gs['Adj Close'].rolling(window=120).mean()
-# gs.insert(len(gs.columns), "MA120", ma120)
-
-plt.plot(gs.index, gs['Adj Close'], label="Adj Close")
-
-
 def make_graph(calcT):
     for i in calcT:
         plt.plot(gs.index, gs['MA'+str(i)], label='MA'+str(i))
 
+menu = print_menu()             #종목 입력
+gs = query_gs(menu)             #주가 조회
+# calcT = [5, 20, 60, 120]      #이동평균 산출 종류 지정
+calcT = [60, 120]               #이동평균 산출 종류 지정
+ma(gs, calcT)                   #이동평균 산출
+
+# draw Graph 
+plt.plot(gs.index, gs['Adj Close'], label="Adj Close")
+#plt.plot(gs.index, gs['Volume'], label="Volume")
 make_graph(calcT)
-# plt.plot(gs.index, gs['MA5'], label="MA5")
-# plt.plot(gs.index, gs['MA20'], label="MA20")
-# plt.plot(gs.index, gs['MA60'], label="MA60")
-# plt.plot(gs.index, gs['MA120'], label="MA120")
 plt.legend(loc='best')
 plt.grid()
 plt.show()
