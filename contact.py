@@ -20,7 +20,6 @@ class Contact:
             self.e_mail,'\t\t' ,
             self.addr)
 
-
 def set_contact():
     name = input("Name: ")
     phone_number = input("Phone Number: ")
@@ -46,7 +45,6 @@ def print_menu():
     print("4. 종료")
     menu = input("메뉴선택: ")
     return int(menu)
-
 
 def store_contact(contact_list):
     f = open("contact_db.txt", "wt")
@@ -76,6 +74,7 @@ def run():
     contact_list = []
     load_contact(contact_list)
     while 1:
+        print()
         menu = print_menu()
         if  menu == 1:
             contact = set_contact()
