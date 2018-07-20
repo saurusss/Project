@@ -10,6 +10,15 @@ yf.pdr_override()
 import matplotlib.pyplot as plt
 import datetime
 
+def print_menu():
+    '''종목 입력'''
+    print()
+    menu1 = input("종목코드(6자리): ")
+    menu2 = input("KS or KQ) : ")
+    menu3 = input("start date : ")
+    menu = [menu1, menu2, menu3]
+    return menu
+    
 def query_gs(code):
     '''주식가격 조회'''
     start_date = '1996-05-06' #startdate를 1996년으로 설정해두면 가장 오래된 데이터부터 전부 가져올 수 있다.
@@ -21,14 +30,6 @@ def query_gs(code):
     gs = pdr.data.get_data_yahoo(tickers, code[2])
     return gs
 
-def print_menu():
-    '''종목 입력'''
-    print()
-    menu1 = input("종목코드(6자리): ")
-    menu2 = input("KS or KQ) : ")
-    menu3 = input("start date : ")
-    menu = [menu1, menu2, menu3]
-    return menu
 
 #Average 산출
 def ma(gss,calcT):
