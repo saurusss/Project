@@ -14,7 +14,10 @@ from zipline.algorithm import TradingAlgorithm
 start = datetime.datetime(2010, 1, 1)
 end = datetime.datetime(2016, 3, 19)
 # data = web.DataReader("AAPL", "yahoo", start, end)
-data = web.data.get_data_yahoo("AAPL", start, end)
+# data = web.data.get_data_yahoo("AAPL", start, end)
+
+tickers = ['055550','KS', '2017-01-01']
+data = pdr.data.get_data_yahoo(tickers, code[2])
 print(data)
 plt.plot(data.index, data['Adj Close'])
 plt.show()
