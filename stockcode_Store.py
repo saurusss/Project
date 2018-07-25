@@ -8,17 +8,14 @@ stock_df = pd.DataFrame(stockcode)
 print(type(stock_df))
 print(stock_df)
 
-# stock_df.to_csv('c:\\TEMP\\stockcode.csv', mode='w')
-# Write to the file
-stock_df_file = 'stockcodefile.data'
-f = open(stock_df_file, 'wb')
-# Dump the object to a file
-pickle.dump(stock_df, f)
-f.close()
-# Destroy the shoplist variable
-del stock_df
-# Read back from the storage
-f = open(stock_df_file, 'rb')
-# Load the object from the file
-storedlist = pickle.load(f)
-print(storedlist)
+stock_df.to_csv('c:\\TEMP\\stockcode.csv', mode='w')
+
+# Write to the file by pickle
+# stock_df_file = 'stockcodefile.data'
+# f = open(stock_df_file, 'wb')
+# pickle.dump(stock_df, f)
+# f.close()
+# del stock_df
+# f = open(stock_df_file, 'rb')
+# storedlist = pickle.load(f)
+# print(storedlist)
